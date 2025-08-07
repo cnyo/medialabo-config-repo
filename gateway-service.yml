@@ -16,6 +16,7 @@ spring:
                 - Path=/api/patients, /api/patients/, /api/patients/**
               filters:
                 - StripPrefix=1
+                - AddRequestHeader=X-API-KEY,gateway-secret-key
 
 eureka:
   client:
