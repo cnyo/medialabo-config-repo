@@ -21,6 +21,12 @@ spring:
               filters:
                 - StripPrefix=1
 
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
 eureka:
   client:
     register-with-eureka: true
