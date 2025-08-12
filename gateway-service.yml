@@ -6,9 +6,6 @@ spring:
     user:
       name: user
       password: mdp
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
   cloud:
     gateway:
       server:
