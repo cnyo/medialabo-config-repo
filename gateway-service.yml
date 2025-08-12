@@ -6,6 +6,9 @@ spring:
     user:
       name: user
       password: mdp
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   cloud:
     gateway:
       server:
@@ -17,7 +20,7 @@ spring:
             - id: api-patient
               uri: lb://patient-service
               predicates:
-                - Path=/api/patients, /api/patients/, /api/patients/**
+                - Path=/api/patients/**
               filters:
                 - StripPrefix=1
                 - RemoveRequestHeader=Authorization
