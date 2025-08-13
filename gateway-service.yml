@@ -29,8 +29,8 @@ spring:
                 - Path=/api/patients/**
               filters:
                 - StripPrefix=1
-                - RemoveRequestHeader=Authorization
-                - AddRequestHeader=Authorization, Basic Z2F0ZXdheTpnYXRld2F5cGFzcw==   # base64("gateway:gatewaypass")
+#                - RemoveRequestHeader=Authorization
+#                - AddRequestHeader=Authorization, Basic Z2F0ZXdheTpnYXRld2F5cGFzcw==   # base64("gateway:gatewaypass")
 
 logging:
   level:
