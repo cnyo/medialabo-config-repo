@@ -2,10 +2,11 @@ server:
   port: 9001
 
 spring:
-  security:
-    user:
-      name: user
-      password: mdp
+#  security:
+#    user:
+#      name: user
+#      password: mdp
+
   cloud:
     gateway:
       server:
@@ -14,18 +15,18 @@ spring:
             locator:
               enabled: true
           routes:
+            - id: api-note
+              uri: lb://note-service
+              predicates:
+                - Path=Path=/api/notes/**, /api/patients/**/notes/**
+              filters:
+                - StripPrefix=1
+            #                - RemoveRequestHeader=Authorization
+            #                - AddRequestHeader=Authorization, Basic Z2F0ZXdheTpnYXRld2F5cGFzcw==   # base64("gateway:gatewaypass")
             - id: api-patient
               uri: lb://patient-service
               predicates:
                 - Path=/api/patients/**
-              filters:
-                - StripPrefix=1
-                - RemoveRequestHeader=Authorization
-                - AddRequestHeader=Authorization, Basic Z2F0ZXdheTpnYXRld2F5cGFzcw==   # base64("gateway:gatewaypass")
-            - id: api-note
-              uri: lb://note-service
-              predicates:
-                - Path=/api/notes/**
               filters:
                 - StripPrefix=1
                 - RemoveRequestHeader=Authorization
