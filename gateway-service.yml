@@ -18,7 +18,7 @@ spring:
             - id: api-note
               uri: lb://note-service
               predicates:
-                - Path=Path=/api/notes/**, /api/patients/**/notes/**
+                - Path=/api/notes/**, /api/patients/**/notes/**
               filters:
                 - StripPrefix=1
             #                - RemoveRequestHeader=Authorization
