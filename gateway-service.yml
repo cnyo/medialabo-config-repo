@@ -34,7 +34,7 @@ spring:
             - id: api-assessment
               uri: lb://assessment-service
               predicates:
-                - Path=/api/assessmentv/**
+                - Path=/api/assessment/**
               filters:
                 - StripPrefix=1
 
