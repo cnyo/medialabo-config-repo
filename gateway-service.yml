@@ -31,6 +31,12 @@ spring:
                 - StripPrefix=1
 #                - RemoveRequestHeader=Authorization
 #                - AddRequestHeader=Authorization, Basic Z2F0ZXdheTpnYXRld2F5cGFzcw==   # base64("gateway:gatewaypass")
+            - id: api-assessment
+              uri: lb://assessment-service
+              predicates:
+                - Path=/api/assessmentv/**
+              filters:
+                - StripPrefix=1
 
 logging:
   level:
